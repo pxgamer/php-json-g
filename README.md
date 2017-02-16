@@ -2,7 +2,7 @@
 
 The usage of the api is extremely simple, there are two endpoints at the moment
 
-Both involve POSTing the url of the api, with the variable `in`
+Both involve _POST_ing the url of the api, with the variable `in`
 
 The script decides on it's own what to do : 
 

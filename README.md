@@ -21,7 +21,7 @@ $im->readimageblob($b64);
 $js = JsonG::toJson($im);
 
 header("Content-Type: text/json");
-echo $im;
+echo $js;
 ```
 
 **Converting a JSON-G string to image via POST**

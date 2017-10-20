@@ -3,8 +3,14 @@
 use PHPUnit\Framework\TestCase;
 use RaidAndFade\JsonG\JsonG;
 
+/**
+ * Class JsonGFromImageTest
+ */
 class JsonGFromImageTest extends TestCase
 {
+    /**
+     * Test whether an image blob string can be converted to a JSON-G string
+     */
     public function testCanConvertImageBlobToJsonGString()
     {
         $testData = fopen(__DIR__ . '/../resources/demo.png', 'rb');

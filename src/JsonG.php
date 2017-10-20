@@ -6,8 +6,17 @@ use Imagick;
 use ImagickDraw;
 use ImagickPixel;
 
+/**
+ * Class JsonG
+ */
 class JsonG
 {
+    /**
+     * Convert a JSON-G array instance to a Imagick image blob
+     *
+     * @param array $jsonArray
+     * @return string
+     */
     public static function toImageBlob(array $jsonArray)
     {
         $image = new Imagick();
@@ -41,6 +50,12 @@ class JsonG
         return $image->getImageBlob();
     }
 
+    /**
+     * Converts an Imagick image instance to a JSON-G string
+     *
+     * @param Imagick $image
+     * @return string
+     */
     public static function toJson(Imagick $image)
     {
         $pixels = [];

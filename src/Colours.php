@@ -4,13 +4,28 @@ namespace RaidAndFade\JsonG;
 
 use ImagickPixel;
 
+/**
+ * Class Colours
+ */
 class Colours
 {
+    /**
+     * Convert a colour array to an integer sequence
+     *
+     * @param array $colour
+     * @return int|mixed
+     */
     public static function toInt(array $colour)
     {
         return ($colour['a'] << 24) + ($colour['r'] << 16) + ($colour['g'] << 8) + $colour['b'];
     }
 
+    /**
+     * Convert an integer sequence to an array
+     *
+     * @param int $int
+     * @return array
+     */
     public static function fromInt(int $int)
     {
         return [
@@ -21,6 +36,12 @@ class Colours
         ];
     }
 
+    /**
+     * Convert a colour array to an ImagickPixel instance
+     *
+     * @param array $colour
+     * @return ImagickPixel
+     */
     public static function toImgPixel(array $colour)
     {
         if (isset($colour['a'])) {
@@ -32,13 +53,20 @@ class Colours
         return new ImagickPixel($col);
     }
 
+    /**
+     * Convert a short (RGBA) array to a full-word array (red, green, blue, alpha)
+     *
+     * @param array $colour
+     * @return array
+     */
     public static function shortToFull(array $colour)
     {
         $arr = [
             "red"   => $colour['r'],
+            "green" => $colour['g'],
             "blue"  => $colour['b'],
-            "green" => $colour['g']
         ];
+
         if (isset($colour['a'])) {
             $arr['alpha'] = $colour['a'];
         }
@@ -46,13 +74,20 @@ class Colours
         return $arr;
     }
 
+    /**
+     * Convert a full-word (red, green, blue, alpha) array to a  short (RGBA) array
+     *
+     * @param array $colour
+     * @return array
+     */
     public static function fullToShort(array $colour)
     {
         $arr = [
             "r" => $colour['red'],
+            "g" => $colour['green'],
             "b" => $colour['blue'],
-            "g" => $colour['green']
         ];
+
         if (isset($colour['alpha'])) {
             $arr['a'] = $colour['alpha'];
         }

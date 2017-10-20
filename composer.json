@@ -1,0 +1,12 @@
+{
+    "name": "raidandfade/json-g",
+    "description": "A PHP implementation of JSON-G.",
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RaidAndFade\\JsonG\\": "src/"
+        }
+    }
+}

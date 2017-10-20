@@ -18,7 +18,7 @@ $b64 = base64_decode($_POST['in']);
 $im = new Imagick();
 $im->readimageblob($b64);
 
-$js = JsonG::fromImage($im);
+$js = JsonG::toJson($im);
 
 header("Content-Type: text/json");
 echo $im;

@@ -1,11 +1,39 @@
 # PHP JSON-G
 
-The usage of the api is extremely simple, there are two endpoints at the moment
+A PHP implementation of [JSON-G](https://github.com/Roadcrosser/JSON-G).
 
-Both involve _POST_ing the url of the api, with the variable `in`
+## Usage
 
-The script decides on it's own what to do : 
+Include the package using Composer:  
+`composer require pxgamer/json-g`
 
-if `in` is already an instance of json-g, it will be converted to a png
+Use the `JsonG::toImageBlob()` or `JsonG::toJson()` to convert between a blob and JSON-G.
 
-if `in` is a base64 image, it will be converted to json-g
+## Examples
+
+**Converting an image via POST**
+```php
+$b64 = base64_decode($_POST['in']);
+
+$im = new Imagick();
+$im->readimageblob($b64);
+
+$js = JsonG::fromImage($im);
+
+header("Content-Type: text/json");
+echo $im;
+```
+
+**Converting a JSON-G string to image via POST**
+```php
+json_decode($_POST['in'], true);
+
+$im = JsonG::toImageBlob();
+
+header("Content-Type: image/png");
+echo $im;
+```
+
+## Original Repository
+
+https://git.gocode.it/RaidAndFade/PHP_json-g

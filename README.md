@@ -13,25 +13,25 @@ Use the `JsonG::toImageBlob()` or `JsonG::toJson()` to convert between a blob an
 
 **Converting an image via POST**
 ```php
-$b64 = base64_decode($_POST['in']);
+$base64 = base64_decode($_POST['in']);
 
-$im = new Imagick();
-$im->readimageblob($b64);
+$image = new Imagick();
+$image->readimageblob($base64);
 
-$js = JsonG::toJson($im);
+$json = JsonG::toJson($im);
 
 header("Content-Type: text/json");
-echo $js;
+echo $json;
 ```
 
 **Converting a JSON-G string to image via POST**
 ```php
 $jsonArray = json_decode($_POST['in'], true);
 
-$im = JsonG::toImageBlob($jsonArray);
+$image = JsonG::toImageBlob($jsonArray);
 
 header("Content-Type: image/png");
-echo $im;
+echo $image;
 ```
 
 ## Original Repository

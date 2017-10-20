@@ -26,9 +26,9 @@ echo $im;
 
 **Converting a JSON-G string to image via POST**
 ```php
-json_decode($_POST['in'], true);
+$jsonArray = json_decode($_POST['in'], true);
 
-$im = JsonG::toImageBlob();
+$im = JsonG::toImageBlob($jsonArray);
 
 header("Content-Type: image/png");
 echo $im;

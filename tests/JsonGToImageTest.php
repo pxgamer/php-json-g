@@ -1,7 +1,8 @@
 <?php
 
+namespace RaidAndFade\JsonG;
+
 use PHPUnit\Framework\TestCase;
-use RaidAndFade\JsonG\JsonG;
 
 /**
  * Class JsonGToImageTest

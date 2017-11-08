@@ -1,7 +1,9 @@
 <?php
 
+namespace RaidAndFade\JsonG;
+
+use Imagick;
 use PHPUnit\Framework\TestCase;
-use RaidAndFade\JsonG\JsonG;
 
 /**
  * Class JsonGFromImageTest

@@ -16,7 +16,7 @@ cache:
 
 before_script:
   - pecl channel-update pecl.php.net
-  - pecl install imagick
+  - printf "\n" | pecl install imagick
   - travis_retry composer update --no-interaction --prefer-dist
 
 script:

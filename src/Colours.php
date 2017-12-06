@@ -5,12 +5,12 @@ namespace RaidAndFade\JsonG;
 use ImagickPixel;
 
 /**
- * Class Colours
+ * Class Colours.
  */
 class Colours
 {
     /**
-     * Convert a colour array to an integer sequence
+     * Convert a colour array to an integer sequence.
      *
      * @param array $colour
      * @return int|mixed
@@ -21,7 +21,7 @@ class Colours
     }
 
     /**
-     * Convert an integer sequence to an array
+     * Convert an integer sequence to an array.
      *
      * @param int $int
      * @return array
@@ -37,7 +37,7 @@ class Colours
     }
 
     /**
-     * Convert a colour array to an ImagickPixel instance
+     * Convert a colour array to an ImagickPixel instance.
      *
      * @param array $colour
      * @return ImagickPixel
@@ -45,16 +45,16 @@ class Colours
     public static function toImgPixel(array $colour)
     {
         if (isset($colour['a'])) {
-            $col = "rgba(" . $colour['r'] . "," . $colour['g'] . "," . $colour['b'] . "," . $colour['a'] . ")";
+            $col = "rgba(".$colour['r'].",".$colour['g'].",".$colour['b'].",".$colour['a'].")";
         } else {
-            $col = "rgb(" . $colour['r'] . "," . $colour['g'] . "," . $colour['b'] . ")";
+            $col = "rgb(".$colour['r'].",".$colour['g'].",".$colour['b'].")";
         }
 
         return new ImagickPixel($col);
     }
 
     /**
-     * Convert a short (RGBA) array to a full-word array (red, green, blue, alpha)
+     * Convert a short (RGBA) array to a full-word array (red, green, blue, alpha).
      *
      * @param array $colour
      * @return array
@@ -62,9 +62,9 @@ class Colours
     public static function shortToFull(array $colour)
     {
         $arr = [
-            "red"   => $colour['r'],
+            "red" => $colour['r'],
             "green" => $colour['g'],
-            "blue"  => $colour['b'],
+            "blue" => $colour['b'],
         ];
 
         if (isset($colour['a'])) {
@@ -75,7 +75,7 @@ class Colours
     }
 
     /**
-     * Convert a full-word (red, green, blue, alpha) array to a  short (RGBA) array
+     * Convert a full-word (red, green, blue, alpha) array to a  short (RGBA) array.
      *
      * @param array $colour
      * @return array

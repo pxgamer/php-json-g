@@ -7,12 +7,12 @@ use ImagickDraw;
 use ImagickPixel;
 
 /**
- * Class JsonG
+ * Class JsonG.
  */
 class JsonG
 {
     /**
-     * Convert a JSON-G array instance to a Imagick image blob
+     * Convert a JSON-G array instance to a Imagick image blob.
      *
      * @param array $jsonArray
      * @return string
@@ -51,21 +51,22 @@ class JsonG
     }
 
     /**
-     * Converts an Imagick image instance to a JSON-G string
+     * Converts an Imagick image instance to a JSON-G string.
      *
      * @param Imagick $image
      * @return string
+     * @throws \ImagickPixelException
      */
     public static function toJson(Imagick $image)
     {
         $pixels = [];
         $colors = [];
         $res = [
-            'version'      => '1.0',
+            'version' => '1.0',
             'transparency' => true,
-            'layers'       => [],
-            'size'         => [
-                'width'  => $image->getImageWidth(),
+            'layers' => [],
+            'size' => [
+                'width' => $image->getImageWidth(),
                 'height' => $image->getImageHeight(),
             ],
         ];
@@ -90,7 +91,7 @@ class JsonG
 
         $def = array_search(max($colors), $colors);
         $l = [
-            'pixels'        => [],
+            'pixels' => [],
             'default_color' => Colours::shortToFull(Colours::fromInt($def)),
         ];
 
@@ -105,7 +106,7 @@ class JsonG
                                 "x" => $x,
                                 "y" => $y
                             ],
-                            "color"    => Colours::shortToFull($pixel)
+                            "color" => Colours::shortToFull($pixel)
                         ]
                     );
                 }

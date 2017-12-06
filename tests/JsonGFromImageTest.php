@@ -6,12 +6,12 @@ use Imagick;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class JsonGFromImageTest
+ * Class JsonGFromImageTest.
  */
 class JsonGFromImageTest extends TestCase
 {
     /**
-     * Test whether an image blob string can be converted to a JSON-G string
+     * Test whether an image blob string can be converted to a JSON-G string.
      */
     public function testCanConvertImageBlobToJsonGString()
     {

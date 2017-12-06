@@ -12,6 +12,8 @@ class JsonGFromImageTest extends TestCase
 {
     /**
      * Test whether an image blob string can be converted to a JSON-G string.
+     *
+     * @throws \ImagickPixelException
      */
     public function testCanConvertImageBlobToJsonGString()
     {

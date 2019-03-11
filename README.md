@@ -9,20 +9,11 @@
 
 A PHP implementation of [JSON-G](https://github.com/Roadcrosser/JSON-G).
 
-## Structure
-
-```
-resources/
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
 
-``` bash
+```bash
 $ composer require pxgamer/json-g
 ```
 
@@ -33,6 +24,7 @@ Use the `JsonG::toImageBlob()` or `JsonG::toJson()` to convert between a blob an
 #### Examples
 
 **Converting an image via POST**
+
 ```php
 $base64 = base64_decode($_POST['in']);
 
@@ -46,6 +38,7 @@ echo $json;
 ```
 
 **Converting a JSON-G string to image via POST**
+
 ```php
 $jsonArray = json_decode($_POST['in'], true);
 
@@ -61,17 +54,17 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](.github/CODE_OF_CONDUCT.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email security@pxgamer.xyz instead of using the issue tracker.
 
 ## Credits
 

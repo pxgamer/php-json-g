@@ -4,11 +4,13 @@ namespace RaidAndFade\JsonG;
 
 use Imagick;
 use ImagickDraw;
+use ImagickException;
 use ImagickPixel;
+use ImagickPixelException;
+use function array_key_exists;
+use function array_search;
+use function json_encode;
 
-/**
- * Class JsonG.
- */
 class JsonG
 {
     /**
@@ -16,8 +18,9 @@ class JsonG
      *
      * @param array $jsonArray
      * @return string
+     * @throws ImagickException
      */
-    public static function toImageBlob(array $jsonArray)
+    public static function toImageBlob(array $jsonArray): string
     {
         $image = new Imagick();
         $image->newImage($jsonArray['size']['width'], $jsonArray['size']['height'], new ImagickPixel('none'));
@@ -55,9 +58,9 @@ class JsonG
      *
      * @param Imagick $image
      * @return string
-     * @throws \ImagickPixelException
+     * @throws ImagickPixelException
      */
-    public static function toJson(Imagick $image)
+    public static function toJson(Imagick $image): string
     {
         $pixels = [];
         $colors = [];
@@ -89,7 +92,7 @@ class JsonG
             }
         }
 
-        $def = array_search(max($colors), $colors);
+        $def = array_search(max($colors), $colors, true);
         $l = [
             'pixels' => [],
             'default_color' => Colours::shortToFull(Colours::fromInt($def)),
@@ -98,17 +101,11 @@ class JsonG
         foreach ($pixels as $x => $cols) {
             foreach ($cols as $y => $pixel) {
                 $col = ($pixel['a'] << 24) + ($pixel['r'] << 16) + ($pixel['g'] << 8) + $pixel['b'];
-                if ($col != $def) {
-                    array_push(
-                        $l['pixels'],
-                        [
-                            "position" => [
-                                "x" => $x,
-                                "y" => $y
-                            ],
-                            "color" => Colours::shortToFull($pixel)
-                        ]
-                    );
+                if ($col !== $def) {
+                    $l['pixels'][] = [
+                        'position' => compact('x', 'y'),
+                        'color' => Colours::shortToFull($pixel),
+                    ];
                 }
             }
         }

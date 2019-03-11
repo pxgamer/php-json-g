@@ -15,6 +15,6 @@ class JsonGToImageTest extends TestCase
 
         $image = JsonG::toImageBlob($jsonArray);
 
-        $this->assertInternalType('string', $image);
+        $this->assertIsString($image);
     }
 }

@@ -24,6 +24,7 @@ Use the `JsonG::toImageBlob()` or `JsonG::toJson()` to convert between a blob an
 #### Examples
 
 **Converting an image via POST**
+
 ```php
 $base64 = base64_decode($_POST['in']);
 
@@ -37,6 +38,7 @@ echo $json;
 ```
 
 **Converting a JSON-G string to image via POST**
+
 ```php
 $jsonArray = json_decode($_POST['in'], true);
 

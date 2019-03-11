@@ -4,9 +4,6 @@ namespace RaidAndFade\JsonG;
 
 use ImagickPixel;
 
-/**
- * Class Colours.
- */
 class Colours
 {
     /**
@@ -26,13 +23,13 @@ class Colours
      * @param int $int
      * @return array
      */
-    public static function fromInt(int $int)
+    public static function fromInt(int $int): array
     {
         return [
             'r' => 0xff & $int >> 16,
             'g' => 0xff & $int >> 8,
             'b' => 0xff & $int,
-            'a' => 0xff & $int >> 24
+            'a' => 0xff & $int >> 24,
         ];
     }
 
@@ -42,12 +39,12 @@ class Colours
      * @param array $colour
      * @return ImagickPixel
      */
-    public static function toImgPixel(array $colour)
+    public static function toImgPixel(array $colour): ImagickPixel
     {
         if (isset($colour['a'])) {
-            $col = "rgba(".$colour['r'].",".$colour['g'].",".$colour['b'].",".$colour['a'].")";
+            $col = sprintf('rgba(%s,%s,%s,%s)', $colour['r'], $colour['g'], $colour['b'], $colour['a']);
         } else {
-            $col = "rgb(".$colour['r'].",".$colour['g'].",".$colour['b'].")";
+            $col = sprintf('rgb(%s,%s,%s)', $colour['r'], $colour['g'], $colour['b']);
         }
 
         return new ImagickPixel($col);
@@ -59,12 +56,12 @@ class Colours
      * @param array $colour
      * @return array
      */
-    public static function shortToFull(array $colour)
+    public static function shortToFull(array $colour): array
     {
         $arr = [
-            "red" => $colour['r'],
-            "green" => $colour['g'],
-            "blue" => $colour['b'],
+            'red' => $colour['r'],
+            'green' => $colour['g'],
+            'blue' => $colour['b'],
         ];
 
         if (isset($colour['a'])) {
@@ -80,12 +77,12 @@ class Colours
      * @param array $colour
      * @return array
      */
-    public static function fullToShort(array $colour)
+    public static function fullToShort(array $colour): array
     {
         $arr = [
-            "r" => $colour['red'],
-            "g" => $colour['green'],
-            "b" => $colour['blue'],
+            'r' => $colour['red'],
+            'g' => $colour['green'],
+            'b' => $colour['blue'],
         ];
 
         if (isset($colour['alpha'])) {

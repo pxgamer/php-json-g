@@ -6,7 +6,20 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
-## [v2.0.3]- 2017-12-06
+## [v2.1.0] - 2019-03-11
+
+### Added
+- Add support for PHPUnit 8 ([#2](https://github.com/pxgamer/php-json-g/pull/2))
+- Add missing extension references to the Composer JSON ([b2ee756b](https://github.com/pxgamer/php-json-g/commit/b2ee756b126ed910151e2fe5d25244b89e126cc0))
+
+### Changed
+- Update the directory structure formatting ([70dfbf55](https://github.com/pxgamer/php-json-g/commit/70dfbf5536e7d45816c2bbd9c7505676321ece7a))
+- Move test resources to the `tests` directory ([dcf5d675](https://github.com/pxgamer/php-json-g/commit/dcf5d675eb490f24b4d39b777099a72c55936826))
+
+### Deprecated
+- Remove support for PHP 7.1 ([19d12ecb](https://github.com/pxgamer/php-json-g/commit/19d12ecba15ef32be52c5ee552d28fbec6d99218))
+
+## [v2.0.3] - 2017-12-06
 
 ### Added
 - Bumped `squizlabs/php_codesniffer` dependency to `^3.1`
@@ -43,6 +56,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Added namespacing
 
 [Unreleased]: https://github.com/pxgamer/php-json-g/compare/master...develop
+[v2.1.0]: https://github.com/pxgamer/php-json-g/compare/v2.0.3...v2.1.0
 [v2.0.3]: https://github.com/pxgamer/php-json-g/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/pxgamer/php-json-g/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/pxgamer/php-json-g/compare/v2.0.0...v2.0.1

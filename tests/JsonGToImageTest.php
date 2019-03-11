@@ -3,6 +3,8 @@
 namespace RaidAndFade\JsonG;
 
 use PHPUnit\Framework\TestCase;
+use function file_get_contents;
+use function json_decode;
 
 class JsonGToImageTest extends TestCase
 {

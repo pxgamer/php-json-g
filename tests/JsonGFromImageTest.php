@@ -6,6 +6,7 @@ use Imagick;
 use ImagickException;
 use ImagickPixelException;
 use PHPUnit\Framework\TestCase;
+use function fopen;
 
 class JsonGFromImageTest extends TestCase
 {

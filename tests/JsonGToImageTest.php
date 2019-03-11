@@ -4,17 +4,12 @@ namespace RaidAndFade\JsonG;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class JsonGToImageTest.
- */
 class JsonGToImageTest extends TestCase
 {
-    /**
-     * Test whether a JSON-G string can be converted to an image blob string.
-     */
-    public function testCanConvertJsonGStringToImageBlob()
+    /* Test whether a JSON-G string can be converted to an image blob string. */
+    public function testCanConvertJsonGStringToImageBlob(): void
     {
-        $testData = file_get_contents(__DIR__ . '/../resources/demo.jsng');
+        $testData = file_get_contents(__DIR__.'/../resources/demo.jsng');
 
         $jsonArray = json_decode($testData, true);
 

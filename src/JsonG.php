@@ -103,10 +103,7 @@ class JsonG
                 $col = ($pixel['a'] << 24) + ($pixel['r'] << 16) + ($pixel['g'] << 8) + $pixel['b'];
                 if ($col !== $def) {
                     $l['pixels'][] = [
-                        'position' => [
-                            'x' => $x,
-                            'y' => $y,
-                        ],
+                        'position' => compact('x', 'y'),
                         'color' => Colours::shortToFull($pixel),
                     ];
                 }

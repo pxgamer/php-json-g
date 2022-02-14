@@ -95,6 +95,7 @@ Read more about Treeware at [treeware.earth][link-treeware].
 [ico-github-actions]: https://img.shields.io/github/workflow/status/pxgamer/php-json-g/Tests.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/107679531/shield
 [ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/json-g.svg?style=flat-square
+[ico-treeware-gifting]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/pxgamer/json-g
 [link-github-actions]: https://github.com/pxgamer/php-json-g/actions

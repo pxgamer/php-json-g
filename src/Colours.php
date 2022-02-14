@@ -19,7 +19,7 @@ class Colours
     /**
      * Convert an integer sequence to an array.
      *
-     * @return  array{r: int, g: int, b: int, a: int}
+     * @return array{r: int, g: int, b: int, a: int}
      */
     public static function fromInt(int $int): array
     {
@@ -34,7 +34,7 @@ class Colours
     /**
      * Convert a colour array to an ImagickPixel instance.
      *
-     * @param  array{r: int, g: int, b: int, a: int}  $colour
+     * @param  array{r: int, g: int, b: int, a?: int}  $colour
      */
     public static function toImgPixel(array $colour): ImagickPixel
     {
@@ -50,8 +50,8 @@ class Colours
     /**
      * Convert a short (RGBA) array to a full-word array (red, green, blue, alpha).
      *
-     * @param  array{r: int, g: int, b: int, a: int}  $colour
-     * @return  array{red: int, green: int, blue: int, alpha: int}
+     * @param  array{r: int, g: int, b: int, a?: int}  $colour
+     * @return array{red: int, green: int, blue: int, alpha?: int}
      */
     public static function shortToFull(array $colour): array
     {
@@ -71,8 +71,8 @@ class Colours
     /**
      * Convert a full-word (red, green, blue, alpha) array to a  short (RGBA) array.
      *
-     * @param  array{red: int, green: int, blue: int, alpha: int}  $colour
-     * @return  array{r: int, g: int, b: int, a: int}
+     * @param  array{red: int, green: int, blue: int, alpha?: int}  $colour
+     * @return array{r: int, g: int, b: int, a?: int}
      */
     public static function fullToShort(array $colour): array
     {

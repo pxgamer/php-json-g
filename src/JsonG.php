@@ -2,20 +2,20 @@
 
 namespace RaidAndFade\JsonG;
 
-use ImagickDrawException;
-use JsonException;
 use Imagick;
 use ImagickDraw;
+use ImagickDrawException;
 use ImagickException;
 use ImagickPixel;
 use ImagickPixelException;
+use JsonException;
 
 class JsonG
 {
     /**
      * Convert a JSON-G array instance to a Imagick image blob.
      *
-     * @param  array<string, mixed>  $jsonArray
+     * @param  array{size: array{width: int, height: int}, layers: array<string|int, array{default_color?: array{red: int, green: int, blue: int, alpha?: int}, default_colour?: array{red: int, green: int, blue: int, alpha?: int}, pixels: array<string|int, array{color?: array{red: int, green: int, blue: int, alpha?: int}, colour?: array{red: int, green: int, blue: int, alpha?: int}, position: array{x: int, y: int}}>}>}  $jsonArray
      * @return string
      *
      * @throws ImagickException|ImagickDrawException
@@ -26,22 +26,26 @@ class JsonG
         $image->newImage($jsonArray['size']['width'], $jsonArray['size']['height'], new ImagickPixel('none'));
         $image->setImageFormat('png');
 
-        foreach ($jsonArray['layers'] as $layer) {
+        foreach ($jsonArray['layers'] as $layerId => $layer) {
             $layerDrawing = new ImagickDraw();
 
             if (isset($layer['default_colour']) && ! isset($layer['default_color'])) {
-                $pixel['default_color'] = $layer['default_colour'];
+                $layer['default_color'] = $layer['default_colour'];
             }
+
+            assert(isset($layer['default_color']), "A default color was not set on layer `{$layerId}`");
 
             $layerDrawing->setFillColor(Colours::toImgPixel(Colours::fullToShort($layer['default_color'])));
             $layerDrawing->setStrokeWidth(0);
             $layerDrawing->rectangle(0, 0, $jsonArray['size']['width'], $jsonArray['size']['height']);
             $layerDrawing->setStrokeWidth(1);
 
-            foreach ($layer['pixels'] as $pixel) {
+            foreach ($layer['pixels'] as $pixelId => $pixel) {
                 if (isset($pixel['colour']) && ! isset($pixel['color'])) {
                     $pixel['color'] = $pixel['colour'];
                 }
+
+                assert(isset($pixel['color']), "A color was not set on layer `{$layerId}` and pixel `{$pixelId}`");
 
                 $layerDrawing->setFillColor(Colours::toImgPixel(Colours::fullToShort($pixel['color'])));
                 $layerDrawing->point($pixel['position']['x'], $pixel['position']['y']);
@@ -64,6 +68,7 @@ class JsonG
      */
     public static function toJson(Imagick $image): string
     {
+        /** @var array{color?: int, colour?: int, position: array{x: int, y: int}}  $pixels */
         $pixels = [];
         $colors = [];
         $res = [
@@ -97,7 +102,7 @@ class JsonG
         $def = array_search(max($colors), $colors, true);
         $l = [
             'pixels' => [],
-            'default_color' => Colours::shortToFull(Colours::fromInt($def)),
+            'default_color' => Colours::shortToFull(Colours::fromInt($def)), // @phpstan-ignore-line
         ];
 
         foreach ($pixels as $x => $cols) {

@@ -9,7 +9,7 @@ class Colours
     /**
      * Convert a colour array to an integer sequence.
      *
-     * @param array $colour
+     * @param  array  $colour
      * @return int|mixed
      */
     public static function toInt(array $colour)
@@ -20,23 +20,23 @@ class Colours
     /**
      * Convert an integer sequence to an array.
      *
-     * @param int $int
+     * @param  int  $int
      * @return array
      */
     public static function fromInt(int $int): array
     {
         return [
-            'r' => 0xff & $int >> 16,
-            'g' => 0xff & $int >> 8,
-            'b' => 0xff & $int,
-            'a' => 0xff & $int >> 24,
+            'r' => 0xFF & $int >> 16,
+            'g' => 0xFF & $int >> 8,
+            'b' => 0xFF & $int,
+            'a' => 0xFF & $int >> 24,
         ];
     }
 
     /**
      * Convert a colour array to an ImagickPixel instance.
      *
-     * @param array $colour
+     * @param  array  $colour
      * @return ImagickPixel
      */
     public static function toImgPixel(array $colour): ImagickPixel
@@ -53,7 +53,7 @@ class Colours
     /**
      * Convert a short (RGBA) array to a full-word array (red, green, blue, alpha).
      *
-     * @param array $colour
+     * @param  array  $colour
      * @return array
      */
     public static function shortToFull(array $colour): array
@@ -74,7 +74,7 @@ class Colours
     /**
      * Convert a full-word (red, green, blue, alpha) array to a  short (RGBA) array.
      *
-     * @param array $colour
+     * @param  array  $colour
      * @return array
      */
     public static function fullToShort(array $colour): array

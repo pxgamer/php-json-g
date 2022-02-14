@@ -2,24 +2,23 @@
 
 namespace RaidAndFade\JsonG;
 
-use function array_key_exists;
-use function array_search;
+use ImagickDrawException;
+use JsonException;
 use Imagick;
 use ImagickDraw;
 use ImagickException;
 use ImagickPixel;
 use ImagickPixelException;
-use function json_encode;
 
 class JsonG
 {
     /**
      * Convert a JSON-G array instance to a Imagick image blob.
      *
-     * @param  array  $jsonArray
+     * @param  array<string, mixed>  $jsonArray
      * @return string
      *
-     * @throws ImagickException
+     * @throws ImagickException|ImagickDrawException
      */
     public static function toImageBlob(array $jsonArray): string
     {
@@ -60,7 +59,8 @@ class JsonG
      * @param  Imagick  $image
      * @return string
      *
-     * @throws ImagickPixelException
+     * @throws ImagickPixelException|ImagickException
+     * @throws JsonException
      */
     public static function toJson(Imagick $image): string
     {
@@ -114,6 +114,6 @@ class JsonG
 
         $res['layers'][0] = $l;
 
-        return json_encode($res);
+        return json_encode($res, JSON_THROW_ON_ERROR);
     }
 }

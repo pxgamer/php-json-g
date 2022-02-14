@@ -26,6 +26,8 @@ Use the `JsonG::toImageBlob()` or `JsonG::toJson()` to convert between a blob an
 **Converting an image via POST**
 
 ```php
+use RaidAndFade\JsonG\JsonG;
+
 $base64 = base64_decode($_POST['in']);
 
 $image = new Imagick();
@@ -40,6 +42,8 @@ echo $json;
 **Converting a JSON-G string to image via POST**
 
 ```php
+use RaidAndFade\JsonG\JsonG;
+
 $jsonArray = json_decode($_POST['in'], true);
 
 $image = JsonG::toImageBlob($jsonArray);

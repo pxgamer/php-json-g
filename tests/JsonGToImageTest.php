@@ -1,22 +1,13 @@
 <?php
 
-namespace RaidAndFade\JsonG;
+use RaidAndFade\JsonG\JsonG;
 
-use function file_get_contents;
-use function json_decode;
-use PHPUnit\Framework\TestCase;
+it('can convert a JSON-G string to an image blob', function () {
+    $testData = file_get_contents(__DIR__.'/resources/demo.jsng');
 
-class JsonGToImageTest extends TestCase
-{
-    /* Test whether a JSON-G string can be converted to an image blob string. */
-    public function testCanConvertJsonGStringToImageBlob(): void
-    {
-        $testData = file_get_contents(__DIR__.'/resources/demo.jsng');
+    $jsonArray = json_decode($testData, true);
 
-        $jsonArray = json_decode($testData, true);
+    $image = JsonG::toImageBlob($jsonArray);
 
-        $image = JsonG::toImageBlob($jsonArray);
-
-        $this->assertIsString($image);
-    }
-}
+    expect($image)->toBeString();
+});

@@ -2,8 +2,8 @@ dist: trusty
 language: php
 
 php:
-- 7.2
-- 7.3
+- 7.4
+- 8.0
 - nightly
 
 matrix:
@@ -22,6 +22,3 @@ before_script:
 
 script:
 - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-
-after_success:
-- bash <(curl -s https://codecov.io/bash)

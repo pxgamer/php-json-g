@@ -1,34 +1,25 @@
 <?php
 
-namespace RaidAndFade\JsonG;
-
 use ImagickPixel;
-use PHPUnit\Framework\TestCase;
+use RaidAndFade\JsonG\Colours;
 
-class ColoursTest extends TestCase
-{
-    /* Test whether an ImagickPixel can be created using RGBA. */
-    public function testCanCreateImagePixelWithRGBA(): void
-    {
-        $pixel = Colours::toImgPixel([
-            'r' => 1,
-            'b' => 1,
-            'g' => 1,
-            'a' => 1,
-        ]);
+it('can create an ImagickPixel with RGB', function () {
+    $pixel = Colours::toImgPixel([
+        'r' => 1,
+        'g' => 1,
+        'b' => 1,
+    ]);
 
-        $this->assertInstanceOf(ImagickPixel::class, $pixel);
-    }
+    expect($pixel)->toBeInstanceOf(ImagickPixel::class);
+});
 
-    /* Test whether an ImagickPixel can be created using RGB. */
-    public function testCanCreateImagePixelWithRGB(): void
-    {
-        $pixel = Colours::toImgPixel([
-            'r' => 1,
-            'b' => 1,
-            'g' => 1,
-        ]);
+it('can create an ImagickPixel with RGBA', function () {
+    $pixel = Colours::toImgPixel([
+        'r' => 1,
+        'g' => 1,
+        'b' => 1,
+        'a' => 1,
+    ]);
 
-        $this->assertInstanceOf(ImagickPixel::class, $pixel);
-    }
-}
+    expect($pixel)->toBeInstanceOf(ImagickPixel::class);
+});

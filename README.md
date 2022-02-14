@@ -93,7 +93,6 @@ Read more about Treeware at [treeware.earth][link-treeware].
 [ico-version]: https://img.shields.io/packagist/v/pxgamer/json-g.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-github-actions]: https://img.shields.io/github/workflow/status/pxgamer/php-json-g/Tests.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/pxgamer/php-json-g/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/107679531/shield
 [ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/json-g.svg?style=flat-square
 

@@ -2,7 +2,7 @@
 
 use RaidAndFade\JsonG\JsonG;
 
-it('can convert image blob to JSON-G string', function () {
+it('can convert an image blob to a JSON-G string', function () {
     $testData = fopen(__DIR__.'/resources/demo.png', 'rb');
 
     $image = new Imagick();

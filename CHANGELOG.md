@@ -4,7 +4,17 @@ All notable changes to `php-json-g` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) principles.
 
-## [Unreleased]
+## Unreleased
+
+## [v2.2.0] - 2022-02-14
+
+### Added
+- Add array shaping for static analysis
+- Add static analysis testing in CI
+
+### Changed
+- Add strict return types for methods
+- Replace Travis CI with GitHub Actions
 
 ## [v2.1.0] - 2019-03-11
 
@@ -55,7 +65,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Added unit testing
 - Added namespacing
 
-[Unreleased]: https://github.com/pxgamer/php-json-g/compare/master...develop
+[v2.2.0]: https://github.com/pxgamer/php-json-g/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/pxgamer/php-json-g/compare/v2.0.3...v2.1.0
 [v2.0.3]: https://github.com/pxgamer/php-json-g/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/pxgamer/php-json-g/compare/v2.0.1...v2.0.2

@@ -1,6 +1,5 @@
 <?php
 
-use ImagickPixel;
 use RaidAndFade\JsonG\Colours;
 
 it('can create an ImagickPixel with RGB', function () {
